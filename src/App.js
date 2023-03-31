@@ -6,7 +6,7 @@ class App extends React.Component {
     Person: {
       fullName: "Oumayma Selmi",
       bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      imgSrc: "#",
+      imgSrc: "./ouma.jpg",
       profession: "Software Engineer"
     },
     shows: false,
@@ -29,8 +29,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <button onClick={this.toggleShows}>Click Me</button>
+      <div className="App" 
+      style={{
+        backgroundImage:"../paper.gif",
+        backgroundSize: "cover",
+        height: "100vh"
+      }}>
+        <button className="btn--secondary" variant="primary" onClick={this.toggleShows}>Click Me</button>
         {this.state.shows &&
           <div>
             <h2>{this.state.Person.fullName}</h2>

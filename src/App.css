@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+/*body {
+  background-image: url("paper.gif");
+  background-image: url("paper.gif"),
+  background-size: "cover",
+  height: "100vh",
+}*/
