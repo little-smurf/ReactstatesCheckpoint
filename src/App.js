@@ -1,9 +1,19 @@
+import React from "react";
 import logo from './logo.svg';
 import './App.css';
-
-function App() {
-  return (
-    <div className="App">
+class App extends React.Component {
+  Person = {
+  fullName: "Sara Sem7a",
+  bio:"bioexample",
+  imgSrc:"imgpathexample",
+  profession:"profexample",
+  shows: Boolean
+  };
+  handleClick=()=>this.setState({name:'Arya'})
+  render() {
+  return(
+  <>
+      <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -19,7 +29,13 @@ function App() {
         </a>
       </header>
     </div>
-  );
-}
-
+  </>
+  )
+  }
+  }
 export default App;
+/*
+Add a button that toggles the show state. When the show state is true, the person's profile will appear.
+Create a field that shows the time interval since the last component was mounted using the component lifecycle.
+Hint: use the setInterval method.
+*/
