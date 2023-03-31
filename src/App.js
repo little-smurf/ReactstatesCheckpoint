@@ -1,38 +1,50 @@
 import React from "react";
-import logo from './logo.svg';
 import './App.css';
 class App extends React.Component {
-  Person = {
-  fullName: "Sara Sem7a",
-  bio:"bioexample",
-  imgSrc:"imgpathexample",
-  profession:"profexample",
-  shows: Boolean
-  };
-  handleClick=()=>this.setState({name:'Arya'})
+
+  state = {
+    Person: {
+      fullName: "Oumayma Selmi",
+      bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      imgSrc: "#",
+      profession: "Software Engineer"
+    },
+    shows: false,
+    mountedTime: 0
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => {
+      this.setState({ mountedTime: this.state.mountedTime + 1 })
+    }, 1000)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval)
+  }
+
+  toggleShows = () => {
+    this.setState({ shows: !this.state.shows })
+  }
+
   render() {
-  return(
-  <>
+    return (
       <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  </>
-  )
+        <button onClick={this.toggleShows}>Click Me</button>
+        {this.state.shows &&
+          <div>
+            <h2>{this.state.Person.fullName}</h2>
+            <img src={this.state.Person.imgSrc} alt={this.state.Person.fullName} />
+            <p>{this.state.Person.bio}</p>
+            <p>{this.state.Person.profession}</p>
+          </div>
+        }
+        <p>Component mounted {this.state.mountedTime} seconds ago</p>
+      </div>
+    );
   }
-  }
+}
+
 export default App;
 /*
 Add a button that toggles the show state. When the show state is true, the person's profile will appear.
