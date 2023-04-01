@@ -1,5 +1,6 @@
 import React from "react";
 import './App.css';
+
 class App extends React.Component {
 
   state = {
@@ -29,12 +30,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App" 
-      style={{
-        backgroundImage:"../paper.gif",
-        backgroundSize: "cover",
-        height: "100vh"
-      }}>
+      <div
+      className="App"
+     
+     >
         <button className="btn--secondary" variant="primary" onClick={this.toggleShows}>Click Me</button>
         {this.state.shows &&
           <div>
